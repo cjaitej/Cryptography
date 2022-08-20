@@ -10,7 +10,7 @@ class CeaserCipher:
         we can use a dictionary which will be representing {key_value: "character"}.
         we can also use a list where the key_value will be reprensented by the index of character.
         """
-        self.characters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
+        self.characters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
         self.key = key
 
     def encrypt(self, data):
@@ -19,9 +19,11 @@ class CeaserCipher:
         """
         s = ""
         for i in data:
+            if i == " ":
+                continue
             i = i.lower()
             index = self.characters.index(i)  #extracting key_value of the respective character.
-            s = s + self.characters[(index + self.key)%27]
+            s = s + self.characters[(index + self.key)%26]
         return s
 
     def decrypt(self, data):
@@ -30,9 +32,11 @@ class CeaserCipher:
         """
         s = ""
         for i in data:
+            if i == " ":
+                continue
             i = i.lower()
             index = self.characters.index(i) #extracting key_value of the respective character.
-            s = s + self.characters[(index - self.key)%27]
+            s = s + self.characters[(index - self.key)%26]
         return s
 
 if __name__ == "__main__":
