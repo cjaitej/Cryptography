@@ -27,21 +27,35 @@ class Monoalphabetic_Substitution_Cipher:
         return s
 
 
-"""
-Message = I am ironman | key = ['x', 'u', 'j', 'l', 'd', 'v', 'o', 'e', 'k', 'z', 'w', 'n', 'm', 'g', 'r', 'c', 's', 't', 'b', 'p', 'y', 'a', 'i', 'h', 'f', 'q']
-Encrypted message = kxmktrgmxg
-Decrypted message = iamironman
-"""
+if __name__ == "__main__":
+    cryptography = Monoalphabetic_Substitution_Cipher()
 
-cryptography = Monoalphabetic_Substitution_Cipher()
+    message  = "I am ironman"
+    encrypted_message = cryptography.encrypt(message)
+    decrypted_message = cryptography.decrypt(encrypted_message)
+    print(f"Message = {message} | key = {cryptography.key}")
+    print(f"Encrypted message = {encrypted_message}")
+    print(f"Decrypted message = {decrypted_message}")
 
-message  = "I am ironman"
-encrypted_message = cryptography.encrypt(message)
-decrypted_message = cryptography.decrypt(encrypted_message)
-print(f"Message = {message} | key = {cryptography.key}")
-print(f"Encrypted message = {encrypted_message}")
-print(f"Decrypted message = {decrypted_message}")
+    """
+    Output:
 
-# Monoalphabetic_Substitution_Cipher()
+    Message = I am ironman | key = ['x', 'u', 'j', 'l', 'd', 'v', 'o', 'e', 'k', 'z', 'w', 'n', 'm', 'g', 'r', 'c', 's', 't', 'b', 'p', 'y', 'a', 'i', 'h', 'f', 'q']
+    Encrypted message = kxmktrgmxg
+    Decrypted message = iamironman
+    """
+    cryptography2 = Monoalphabetic_Substitution_Cipher()
+    message  = "Hello World"
+    encrypted_message = cryptography2.encrypt(message)
+    decrypted_message = cryptography2.decrypt(encrypted_message)
+    print(f"Message = {message} | key = {cryptography.key}")
+    print(f"Encrypted message = {encrypted_message}")
+    print(f"Decrypted message = {decrypted_message}")
 
-# Monoalphabetic_Substitution_Cipher()
+    """
+    Output:
+
+    Message = Hello World | key = ['c', 'i', 'b', 'j', 's', 'w', 'a', 'd', 'v', 'k', 'm', 'u', 'l', 't', 'p', 'n', 'z', 'y', 'x', 'r', 'h', 'e', 'q', 'g', 'f', 'o']
+    Encrypted message = nlssqcqyst
+    Decrypted message = helloworld
+    """
