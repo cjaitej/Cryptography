@@ -10,6 +10,9 @@ class Monoalphabetic_Substitution_Cipher:
         random.shuffle(self.key)
 
     def encrypt(self, data):
+        """
+        Encrypted_message = key[index_of_character_in_characters_list]
+        """
         s = ""
         for i in data:
             if i == " ":
@@ -20,6 +23,9 @@ class Monoalphabetic_Substitution_Cipher:
         return s
 
     def decrypt(self, data):
+        """
+        Decrypted_message = characters[index_of_character_in_key_list]
+        """
         s = ""
         for i in data:
             if i == " ":
