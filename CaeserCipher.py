@@ -1,6 +1,6 @@
-class CeaserCipher:
+class CaeserCipher:
     """
-    * Ceaser Cipher is one of the simplest Cryptography.
+    * Caeser Cipher is one of the simplest Cryptography.
     * It is based on substitution technique, where we replace the character in the message with character using a key.
     * It is a private cryptography where key is known to only sender and receiver.
     """
@@ -41,7 +41,7 @@ class CeaserCipher:
 
 if __name__ == "__main__":
 
-    cryptography = CeaserCipher(key = 5)
+    cryptography = CaeserCipher(key = 5)
 
     message  = "I am ironman"
     encrypted_message = cryptography.encrypt(message)
