@@ -39,7 +39,6 @@ if __name__ == "__main__":
 
     """
     Output:
-
     Message = I am ironman | key = ['x', 'u', 'j', 'l', 'd', 'v', 'o', 'e', 'k', 'z', 'w', 'n', 'm', 'g', 'r', 'c', 's', 't', 'b', 'p', 'y', 'a', 'i', 'h', 'f', 'q']
     Encrypted message = kxmktrgmxg
     Decrypted message = iamironman
@@ -54,7 +53,6 @@ if __name__ == "__main__":
 
     """
     Output:
-
     Message = Hello World | key = ['c', 'i', 'b', 'j', 's', 'w', 'a', 'd', 'v', 'k', 'm', 'u', 'l', 't', 'p', 'n', 'z', 'y', 'x', 'r', 'h', 'e', 'q', 'g', 'f', 'o']
     Encrypted message = nlssqcqyst
     Decrypted message = helloworld
