@@ -44,6 +44,15 @@ if __name__ == "__main__":
     decrypted_message = cryptography.decrypt(encrypted_message)
 
 
-    print(f"Message = {message} and key = {cryptography.key}")
+    print(f"Message = {message} | key = {cryptography.key}")
     print(f"Encrypted message = {encrypted_message}")
     print(f"Decrypted message = {decrypted_message}")
+
+"""
+OUTPUT:
+
+Message = I am ironman and key = 5
+Encrypted message = nefrenwtsrfs
+Decrypted message = i am ironman
+
+"""
