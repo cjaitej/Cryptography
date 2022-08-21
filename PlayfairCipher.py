@@ -12,12 +12,13 @@ class PlayfairCipher:
             * if both the letter's fall in the same column of the key matrix, replace each with the letter below it.
             * Otherwise each letter is replaced by the one in its row in the column of the other letter.
         """
-        #Converting all the characters in the message to lower case.
-        data = data.lower()
-        #removing space (" ") from the message.
-        data = data.replace(" ", "")
+
+        data = data.lower() #Converting all the characters in the message to lower case.
+        data = data.replace(" ", "")  #removing space (" ") from the message.
+
         message = self.divide_into_pairs(data)
         encrpted_pairs = []
+
         for pair in message:
             rows_and_columns = self.find_row_and_column(pair)
             if rows_and_columns[0][0] == rows_and_columns[1][0]:
@@ -28,6 +29,7 @@ class PlayfairCipher:
                 columns = [(rows_and_columns[0][1] + 1)%5, (rows_and_columns[1][1] + 1)%5]
                 cipher = self.key_matrix[row][columns[0]] + self.key_matrix[row][columns[1]]
                 encrpted_pairs.append(cipher)
+
             elif rows_and_columns[0][1] == rows_and_columns[1][1]:
                 """
                 If the characters are in the same column, then move down.
@@ -36,6 +38,7 @@ class PlayfairCipher:
                 rows = [(rows_and_columns[0][0] + 1)%5, (rows_and_columns[1][0] + 1)%5]
                 cipher = self.key_matrix[rows[0]][column] + self.key_matrix[rows[1]][column]
                 encrpted_pairs.append(cipher)
+
             else:
                 """
                 Otherwise each letter is replaced by the one in its row in the column of the other letter.
@@ -52,10 +55,12 @@ class PlayfairCipher:
             * if both the letter's fall in the same column of the key matrix, replace each with the letter above it.
             * Otherwise each letter is replaced by the one in its row in the column of the other letter.
         """
-        data = data.lower()
-        data.replace(" ", "")
+        data = data.lower()    #Converting all the characters in the message to lower case.
+        data.replace(" ", "")   #removing space (" ") from the message.
+
         message = self.divide_into_pairs(data)
         decrypted_pair = []
+
         for pair in message:
             rows_and_columns = self.find_row_and_column(pair)
             if rows_and_columns[0][0] == rows_and_columns[1][0]:
@@ -66,6 +71,7 @@ class PlayfairCipher:
                 columns = [(rows_and_columns[0][1] - 1)%5, (rows_and_columns[1][1] - 1)%5]
                 plain_text = self.key_matrix[row][columns[0]] + self.key_matrix[row][columns[1]]
                 decrypted_pair.append(plain_text)
+
             elif rows_and_columns[0][1] == rows_and_columns[1][1]:
                 """
                 If the characters are in the same column, then move down.
@@ -74,6 +80,7 @@ class PlayfairCipher:
                 rows = [(rows_and_columns[0][0] - 1)%5, (rows_and_columns[1][0] - 1)%5]
                 plain_text = self.key_matrix[rows[0]][column] + self.key_matrix[rows[1]][column]
                 decrypted_pair.append(plain_text)
+
             else:
                 """
                 Otherwise each letter is replaced by the one in its row in the column of the other letter.
@@ -98,6 +105,7 @@ class PlayfairCipher:
                             rows_columns.append([row, coloumn])
                             break
                     break
+
         return rows_columns
 
 
@@ -115,6 +123,7 @@ class PlayfairCipher:
                 message_pairs.append(temp)
                 temp = ""
             temp = temp + i
+
         if len(temp) == 1:
             temp = temp + "x"
         message_pairs.append(temp)
@@ -166,6 +175,16 @@ if __name__ == "__main__":
     for i in cryptography.key_matrix:
         print(i)
 
+    """
+    Output:
+    Key_matrix =
+        ['m', 'o', 'n', 'a', 'r']
+        ['c', 'h', 'y', 'b', 'd']
+        ['e', 'f', 'g', 'i', 'k']
+        ['l', 'p', 'q', 's', 't']
+        ['u', 'v', 'w', 'x', 'z']
+    """
+
     message  = "I am ironman"
     encrypted_message = cryptography.encrypt(message)
     decrypted_message = cryptography.decrypt(encrypted_message)
@@ -176,13 +195,6 @@ if __name__ == "__main__":
 
     """
     Output:
-
-    Key_matrix =
-    ['m', 'o', 'n', 'a', 'r']
-    ['c', 'h', 'y', 'b', 'd']
-    ['e', 'f', 'g', 'i', 'k']
-    ['l', 'p', 'q', 's', 't']
-    ['u', 'v', 'w', 'x', 'z']
 
     Message = I am ironman
     Encrypted message = sbaemnaora
@@ -197,6 +209,8 @@ if __name__ == "__main__":
     print(f"Decrypted message = {decrypted_message}")
 
     """
+    Output:
+
     Message = I am groot
     Encrypted message = sbnemnrp
     Decrypted message = iamgroot
