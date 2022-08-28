@@ -1,4 +1,5 @@
 from Tables import Table
+import math
 
 class KeyManipulation:
 
