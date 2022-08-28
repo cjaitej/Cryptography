@@ -57,26 +57,23 @@ class KeyManipulation:
         messages = KeyManipulation.divide_into_size(message, 6)
         s_message = []
         for i in range(len(messages)):
+            if i == 0:
+                box = Table.s1
+            elif i == 1:
+                box = Table.s2
+            elif i == 2:
+                box = Table.s3
+            elif i == 3:
+                box = Table.s4
+            elif i == 4:
+                box = Table.s5
+            elif i == 5:
+                box = Table.s6
+            elif i == 6:
+                box = Table.s7
+            elif i == 7:
+                box = Table.s8
 
-            box = Table.s1
-            # if i == 0:
-                # box = Table.s1
-            # elif i == 1:
-                # box = Table.s2
-            # elif i == 2:
-                # box = Table.s3
-            # elif i == 3:
-                # box = Table.s4
-            # elif i == 4:
-                # box = Table.s5
-            # elif i == 5:
-                # box = Table.s6
-            # elif i == 6:
-                # box = Table.s7
-            # elif i == 7:
-                # box = Table.s8
-
-            error = messages[i]
             row = int(messages[i][0] + messages[i][-1], 2)
             column = int(messages[i][1:-1], 2)
             x = bin(box[row][column])[2:]
@@ -93,6 +90,15 @@ class KeyManipulation:
             else:
                 s = s + "1"
         return s
+
+    def binary_to_text(binary):
+        while binary.startswith("00000000"):
+            binary = binary[8:]
+        binary = KeyManipulation.divide_into_size(binary, 8)
+        text = ""
+        for i in binary:
+            text = text + chr(int(i, 2))
+        return text
 
     def divide_into_size(message, size):
         message_array = []
