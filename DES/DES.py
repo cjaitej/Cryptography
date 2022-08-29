@@ -76,10 +76,10 @@ class DES:
 
 if __name__ == "__main__":
     key = "0100010100101000010010000010101101001101011000100101000101100101"   #64 bit key
-    a = DES(key)
+    cryptography = DES(key)
     message = input("Enter message: ")
-    cipher = a.encrypt(message)
-    plaintext = a.decrypt(cipher)
+    cipher = cryptography.encrypt(message)
+    plaintext = cryptography.decrypt(cipher)
 
     print("Message : ", message)
     print("Key : ", key)
