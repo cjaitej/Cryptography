@@ -23,6 +23,10 @@ if __name__ == "__main__":
     print("message: ", message)
     print()
 
+    print("Key1: ", key1)
+    print("Key2: ", key2)
+    print()
+
     cipher = cryptography.encrypt(message)
     print("Cipher: ", cipher)
 
@@ -35,6 +39,9 @@ if __name__ == "__main__":
     OUTPUT:
 
         message:  Hello, I am jaitej. I am perceiving my BTech in Gitam university.
+
+        Key1:  0111001000110101011101010011100001111000001011110100000100111111
+        Key2:  0100001000111111010001010010100001001000001010110100110101100010
 
         Cipher:  áé9ÙëàûQ
         èC°cÈ¾hïÎ4y
